@@ -3,9 +3,12 @@ import numpy as np
 
 # recBox = box(pos=vector(0,0,0), size=vector(1,0.2,0.5), color=color.red)
 # create an x,y,z coordinate system using arrows
-x_axis = arrow(pos=vector(0,0,0), axis=vector(1,0,0), color=color.red, shaftwidth=0.02,length=5)
-y_axis = arrow(pos=vector(0,0,0), axis=vector(0,1,0), color=color.green, shaftwidth=0.02,length=5)
-z_axis = arrow(pos=vector(0,0,0), axis=vector(0,0,1), color=color.blue, shaftwidth=0.02,length=5)
+Px_axis = arrow(pos=vector(0,0,0), axis=vector(1,0,0), color=color.red, shaftwidth=0.02,length=5)
+Py_axis = arrow(pos=vector(0,0,0), axis=vector(0,1,0), color=color.green, shaftwidth=0.02,length=5)
+Pz_axis = arrow(pos=vector(0,0,0), axis=vector(0,0,1), color=color.blue, shaftwidth=0.02,length=5)
+Nx_axis = arrow(pos=vector(0,0,0), axis=vector(-1,0,0), color=color.red, shaftwidth=0.02,length=5)
+Ny_axis = arrow(pos=vector(0,0,0), axis=vector(0,-1,0), color=color.green, shaftwidth=0.02,length=5)
+Nz_axis = arrow(pos=vector(0,0,0), axis=vector(0 ,0,-1), color=color.blue, shaftwidth=0.02,length=5)
 
 myVecMag = 3.0
 myVecAng = 120  # degrees
