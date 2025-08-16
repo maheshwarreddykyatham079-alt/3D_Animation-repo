@@ -31,18 +31,29 @@ myText = "R"
 text_height = 0.1      # Overall height of the text
 text_depth = 0.3     # Thickness/depth of the text
 
+
 # Create 3D text
-t1 = text(text="R", pos=vector(0, -text_height/2, 0), color=color.red, 
-          height=text_height, depth=text_height/3, align='center')
-slope = -3
+def animate_text(text_str, slope, sound_file=None):
+    t = text(text=text_str, pos=vector(0, -text_height/2, text_height), color=color.red,
+             height=2, depth=text_height/3, align='center')
+    for th in np.linspace(0.1, 2, 100):
+        rate(50)
+        t.height = th
+        t.depth = th / 3  # Adjust width based on height
+        t.pos = vector(th * slope / 2, -th / 2, th)
+
+
+
+# Play sound with first animation only
+animate_text("R", -3)  # This will play sound
+animate_text("A", -1)              # These won't play sound
+animate_text("H", 1)
+animate_text("U", 3)
+animate_text("L", 5)
 
 while True:
     pass
-    #   for text_height in np.linspace(0.1, 2, 100):
-    #     rate(10)
-    #     t1.height = text_height
-    #     t1.depth = text_height/3  # Adjust width based on height
-    #     t1.pos = vector(text_height*slope/2, -text_height/2, text_height)
+      
 # t2 = text(text="A", pos=vector(0, -text_height/2, 0), color=color.red, height=text_height, depth=text_depth, align='center')  
 # slope = -2
 # for text_height in np.linspace(0.1, 2, 100):
