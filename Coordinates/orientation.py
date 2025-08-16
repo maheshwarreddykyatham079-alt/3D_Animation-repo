@@ -23,6 +23,8 @@ myVecY = arrow(pos=vector(0,0,0), axis=vector(0,1,0), color=vector(1,0,1),
 
 myVecRes = arrow(pos=vector(0,0,0), axis=vector(myVecXmag,myVecYmag,0), color=color.yellow, shaftwidth=0.02,length=myVecMag)
 
+ball = sphere(pos=vector(myVecXmag,myVecYmag,0), radius=0.1, color=color.white, make_trail=True)
+
 print("myVecXmag:", sign(myVecXmag))
 print("myVecYmag:", sign(myVecYmag))
 
@@ -32,19 +34,23 @@ zy=0
 
 while True:
     # pass
-    rate(150)
+    rate()
     myVecAng = myVecAng + 1
     myVecXmag = myVecMag * np.cos(np.radians(myVecAng))
     myVecYmag = myVecMag * np.sin(np.radians(myVecAng))
     
     if xy == 1:
         myVecRes.axis = vector(myVecXmag, myVecYmag, 0)
+        ball.pos = vector(myVecXmag, myVecYmag, 0)
         if myVecAng >= 360:
             myVecRes.axis = vector(myVecXmag,0, myVecYmag)
+            ball.pos = vector(myVecXmag, 0, myVecYmag)
             if myVecAng >= 810:
                 myVecRes.axis = vector(0, -myVecXmag, myVecYmag)
+                ball.pos = vector(0, -myVecXmag, myVecYmag)
                 if myVecAng >= 1170:
                     myVecRes.axis = vector(-myVecXmag, 0, myVecYmag)
+                    ball.pos = vector(-myVecXmag, 0, myVecYmag)
                     if myVecAng >= 1260:
                         myVecAng = 0
 
